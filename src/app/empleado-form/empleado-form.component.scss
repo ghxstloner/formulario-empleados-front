@@ -1,0 +1,96 @@
+$primary-color: #1b1b32;
+$input-background: #1c1c3b;
+$card-background: #2e2e4d;
+$red-color: #6e1111;
+$button-color: #6e1111;
+
+mat-card {
+  width: 100%;
+  max-width: 500px;
+  background-color: $primary-color;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+}
+
+mat-card-title {
+  color: $red-color;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $primary-color;
+}
+
+.mat-form-field-infix {
+  background-color: $input-background;
+  padding: 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+input[matInput] {
+  background-color: $input-background;
+  color: #ffffff !important;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+input[matInput]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+.mat-form-field.mat-focused .mat-form-field-outline-thick {
+  color: $red-color;
+}
+
+mat-error small {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+}
+
+button {
+  width: 100%;
+  background-color: $button-color;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darken($button-color, 10%);
+}
+
+button:disabled {
+  background-color: rgba(110, 17, 17, 0.5);
+  color: rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,45 @@
+<form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-title>Formulario de Empleados</mat-card-title>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name">
+        <mat-error *ngIf="empleadoForm.get('name')?.invalid && empleadoForm.get('name')?.touched">
+          <small *ngIf="empleadoForm.get('name')?.errors?.['required']">El nombre es obligatorio.</small>
+          <small *ngIf="empleadoForm.get('name')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Posición</mat-label>
+        <input matInput type="text" formControlName="position">
+        <mat-error *ngIf="empleadoForm.get('position')?.invalid && empleadoForm.get('position')?.touched">
+          <small *ngIf="empleadoForm.get('position')?.errors?.['required']">La posición es obligatoria.</small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Oficina</mat-label>
+        <input matInput type="text" formControlName="office">
+        <mat-error *ngIf="empleadoForm.get('office')?.invalid && empleadoForm.get('office')?.touched">
+          <small *ngIf="empleadoForm.get('office')?.errors?.['required']">La oficina es obligatoria.</small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Salario</mat-label>
+        <input matInput type="number" formControlName="salary">
+        <mat-error *ngIf="empleadoForm.get('salary')?.invalid && empleadoForm.get('salary')?.touched">
+          <small *ngIf="empleadoForm.get('salary')?.errors?.['required']">El salario es obligatorio.</small>
+          <small *ngIf="empleadoForm.get('salary')?.errors?.['min']">El salario debe ser un número positivo.</small>
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="empleadoForm.invalid">
+        Enviar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
