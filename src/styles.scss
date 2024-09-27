@@ -5,4 +5,31 @@ body {
   background-color: #0a0a23;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ball-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #6e1111;
+  transition: transform 0.5s ease, background-color 0.3s ease, top 6s ease, left 6s ease;
+  pointer-events: all;
+}
+
+.ball.clicked {
+  transform: scale(2);
+  background-color: rgba(0, 255, 0, 0.8);
 }

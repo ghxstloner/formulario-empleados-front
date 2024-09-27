@@ -33,6 +33,17 @@ export class EmpleadoFormComponent {
 
   constructor(private empleadoService: EmpleadoService, private snackBar: MatSnackBar) {}
 
+  formatCurrency(event: any) {
+    const value = event.target.value.replace(/[^0-9]/g, '');
+    if (value) {
+      event.target.value = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0,
+      }).format(parseInt(value));
+    }
+  }
+
   onSubmit() {
     if (this.empleadoForm.valid) {
       this.empleadoService.addEmpleado(this.empleadoForm.value).subscribe({
@@ -40,12 +51,14 @@ export class EmpleadoFormComponent {
           this.snackBar.open('Empleado agregado exitosamente', 'Cerrar', {
             duration: 3000,
             panelClass: ['success-snackbar'],
+            verticalPosition: 'top'
           });
         },
         error: (error) => {
           this.snackBar.open('Error al agregar empleado', 'Cerrar', {
             duration: 3000,
             panelClass: ['error-snackbar'],
+            verticalPosition: 'top'
           });
         },
       });
@@ -53,6 +66,7 @@ export class EmpleadoFormComponent {
       this.snackBar.open('El formulario no es válido', 'Cerrar', {
         duration: 3000,
         panelClass: ['error-snackbar'],
+        verticalPosition: 'top'
       });
     }
   }
