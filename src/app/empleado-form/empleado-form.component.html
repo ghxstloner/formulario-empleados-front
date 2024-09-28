@@ -30,8 +30,9 @@
       <mat-form-field appearance="outline">
         <mat-label>Salario</mat-label>
         <input matInput
-        type="text"
-        formControlName="salary" (input)="formatCurrency($event)">
+          type="number"
+          formControlName="salary"
+          >
         <mat-error *ngIf="empleadoForm.get('salary')?.invalid && empleadoForm.get('salary')?.touched">
           <small *ngIf="empleadoForm.get('salary')?.errors?.['required']">El salario es obligatorio.</small>
           <small *ngIf="empleadoForm.get('salary')?.errors?.['min']">El salario debe ser un número positivo.</small>
